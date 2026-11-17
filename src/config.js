@@ -44,7 +44,7 @@ export const config = {
       {
         kicker: "Chapter One",
         title: "The Day We Met",
-        date: "Add your date",
+        date: "24 January 2024",
         icon: "sparkles",
         photo: "",
         text: "Some moments change everything without announcing themselves. That day, I had no idea I was meeting my favourite person in the world."
@@ -52,7 +52,7 @@ export const config = {
       {
         kicker: "Chapter Two",
         title: "Our First Conversation",
-        date: "Add your date",
+        date: "8 November 2023",
         icon: "message",
         photo: "",
         text: "It began with a few simple words and somehow never really stopped. Hours felt like minutes, and I did not want it to end."
@@ -60,7 +60,7 @@ export const config = {
       {
         kicker: "Chapter Three",
         title: "Our Favourite Memories",
-        date: "Add your date",
+        date: "28 march 2024",
         icon: "heart",
         photo: "",
         text: "The shared laughs, the silly jokes, the quiet evenings. Small things that stayed in my heart long after they were over."
@@ -68,7 +68,7 @@ export const config = {
       {
         kicker: "Chapter Four",
         title: "Unforgettable Moments",
-        date: "Add your date",
+        date: "2 September 2025",
         icon: "star",
         photo: "",
         text: "Somewhere between all those ordinary days, I realised you were the one I wanted every single day with."

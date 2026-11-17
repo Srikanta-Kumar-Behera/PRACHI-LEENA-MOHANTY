@@ -11,7 +11,7 @@
 
 export const config = {
   herName: "Shreya",
-  yourName: "Your Name",
+  yourName: "Srikant",
 
   // Optional. Leave "" and the QR page uses the live address of the site.
   // Set it (for example "https://shreya-for-you.vercel.app") to force one.
@@ -88,7 +88,7 @@ export const config = {
       "I do not need a perfect life. I only need you beside me in it."
     ],
     closing: "Forever yours,",
-    signature: "Your Name",
+    signature: "Srikant",
     button: "See Our Memories"
   },
 

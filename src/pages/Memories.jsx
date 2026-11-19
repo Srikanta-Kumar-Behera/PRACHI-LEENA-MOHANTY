@@ -25,7 +25,7 @@ export default function Memories({ next }) {
   const item = M.items[i];
   const foundCount = Object.keys(found).length;
 
-  const go = (d) => {
+  const go = (d) => { 
     audio.sfx.tap();
     setDir(d);
     setFlipped(false);
@@ -76,7 +76,6 @@ export default function Memories({ next }) {
                     <p className="pol-cap">{item.caption}</p>
                   </div>
                   <div className="pol-face pol-back">
-                    <p className="pol-date">{item.date}</p>
                     <p className="pol-note">{item.note}</p>
                     <Heart size={26} fill="currentColor" />
                   </div>

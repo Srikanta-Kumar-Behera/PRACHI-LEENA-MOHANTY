@@ -95,17 +95,42 @@ export const config = {
   // PAGE 5  (caption = shown on the polaroid, note = on the back,
   //          hidden = the secret message revealed by the button)
   memories: {
-    title: "A World of Memories",
-    revealLabel: "Reveal a hidden message",
-    items: [
-      { photo: "", caption: "Us, being us", date: "Add your date", note: "One of my favourite days.", hidden: "This is the day I realised I could happily be silly with you forever." },
-      { photo: "", caption: "That smile", date: "Add your date", note: "The one I think about all the time.", hidden: "Your smile is the first thing I look for and the last thing I forget." },
-      { photo: "", caption: "Our little adventure", date: "Add your date", note: "We got a bit lost. Best part.", hidden: "I would happily get lost anywhere, as long as it is with you." },
-      { photo: "", caption: "A quiet moment", date: "Add your date", note: "No words needed.", hidden: "Peace, to me, looks a lot like sitting next to you." },
-      { photo: "", caption: "Just because", date: "Add your date", note: "No reason. Every reason.", hidden: "I do not need a special day to feel lucky. Every day with you is one." }
-    ],
-    button: "There Is One More Thing"
-  },
+  title: "A World of Memories",
+  revealLabel: "Reveal a hidden message",
+  items: [
+    {
+      photo: "/photos/memory-1.jpg",
+      caption: "Us, being us",
+      note: "One of my favourite days.",
+      hidden: "This is the day I realised I could happily be silly with you forever."
+    },
+    {
+      photo: "/photos/memory-2.jpg",
+      caption: "That smile",
+      note: "The one I think about all the time.",
+      hidden: "Your smile is the first thing I look for and the last thing I forget."
+    },
+    {
+      photo: "/photos/memory-3.jpg",
+      caption: "Our little adventure",
+      note: "We got a bit lost. Best part.",
+      hidden: "I would happily get lost anywhere, as long as it is with you."
+    },
+    {
+      photo: "/photos/memory-4.jpg",
+      caption: "A quiet moment",
+      note: "No words needed.",
+      hidden: "Peace, to me, looks a lot like sitting next to you."
+    },
+    {
+      photo: "/photos/memory-5.jpg",
+      caption: "Just because",
+      note: "No reason. Every reason.",
+      hidden: "I do not need a special day to feel lucky. Every day with you is one."
+    }
+  ],
+  button: "There Is One More Thing"
+},
 
   // PAGE 6
   gift: {

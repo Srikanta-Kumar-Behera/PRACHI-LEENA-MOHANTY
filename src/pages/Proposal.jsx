@@ -39,6 +39,7 @@ export default function Proposal({ next }) {
   const fx = useFx();
   const [stage, setStage] = useState(0);
   const [answer, setAnswer] = useState(null); // null | "yes" | "moment"
+  const [emailStatus, setEmailStatus] = useState("");
 
   useEffect(() => {
     if (stage >= 4 || answer) return undefined;
@@ -53,16 +54,46 @@ export default function Proposal({ next }) {
   }, [stage]);
 
   const advance = () => setStage((s) => (s < 4 ? s + 1 : s));
-  const sayYes = () => {
-    audio.unlock();
-    audio.sfx.yes();
-    fx.celebrate();
-    setAnswer("yes");
-  };
-  const needMoment = () => {
-    audio.sfx.tap();
-    setAnswer("moment");
-  };
+  
+const sendEmailNotification = async (selectedAnswer) => {
+  setEmailStatus("Sending notification...");
+
+  try {
+    const response = await fetch("/api/proposal-response", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        answer: selectedAnswer,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Email sending failed");
+    }
+
+    setEmailStatus("Response shared with Srikant ❤️");
+  } catch (error) {
+    console.error(error);
+    setEmailStatus("Email notification could not be sent.");
+  }
+};
+
+const sayYes = () => {
+  audio.unlock();
+  audio.sfx.yes();
+  fx.celebrate();
+  setAnswer("yes");
+  sendEmailNotification("yes");
+};
+
+const needMoment = () => {
+  audio.sfx.tap();
+  setAnswer("moment");
+  sendEmailNotification("moment");
+};
+
 
   const nameChars = graphemes(P.name);
   const words = P.paragraph.split(" ");
@@ -134,6 +165,7 @@ export default function Proposal({ next }) {
                 {answer === "moment" && (
                   <motion.div className="glass p-moment" initial={{ opacity: 0, y: 16, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.7 }} onClick={(e) => e.stopPropagation()}>
                     <p>{P.momentMessage}</p>
+                    <p role="status">{emailStatus}</p>
                     <button type="button" className="btn btn-ghost" onClick={() => setAnswer(null)}>
                       <RotateCcw size={16} /> {P.momentBack}
                     </button>
@@ -162,6 +194,7 @@ export default function Proposal({ next }) {
               <motion.p className="lead" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.6, duration: 1.2 }}>
                 {P.yesSub}
               </motion.p>
+              <p role="status">{emailStatus}</p>
               <motion.div className="yes-actions" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.6, duration: 1 }}>
                 <button type="button" className="btn btn-ghost" onClick={() => { audio.sfx.yes(); fx.celebrate(); }}>
                   Celebrate again
